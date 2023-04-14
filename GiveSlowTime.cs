@@ -2,16 +2,16 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SlowTime : MonoBehaviour
+public class GiveSlowTime : MonoBehaviour
 {
 
     void OnTriggerEnter(Collider other)
     {
         Destroy(gameObject);
-        PlayerBehavior player = other.GetComponent<PlayerBehavior>();
-        if(!player.BoostOnCD)
+        Abilities playerAbilities = other.GetComponent<Abilities>();
+        if(!playerAbilities.BoostOnCD)
         {
-            player.StartSlowTime();
+            playerAbilities.StartSlowTime();
         }
         
     }

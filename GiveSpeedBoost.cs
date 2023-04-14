@@ -8,10 +8,10 @@ public class GiveSpeedBoost : MonoBehaviour
     void OnTriggerEnter(Collider other)
     {
         Destroy(gameObject);
-        PlayerBehavior player = other.GetComponent<PlayerBehavior>();
-        if(!player.BoostOnCD)
+        Abilities playerAbilities = other.GetComponent<Abilities>();
+        if(!playerAbilities.BoostOnCD)
         {
-            player.StartSpeedBoost();
+            playerAbilities.StartSpeedBoost();
         }
         
     }
